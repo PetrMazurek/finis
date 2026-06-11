@@ -3,6 +3,9 @@
 import React, { useState } from 'react';
 import { LayoutDashboard, Wallet, Car, FolderOpen } from 'lucide-react';
 import FinancePage from './components/FinancePage';
+import CarPage from './components/CarPage';
+import DocumentPage from './components/DocumentPage';
+import DashboardPage from './components/DashboardPage';
 
 export default function Home() {
   // Stav pro sledování, která stránka je zrovna aktivní
@@ -22,31 +25,13 @@ export default function Home() {
       {/* HLAVNÍ OBSAH (Zde se mění stránky podle vybrané záložky) */}
       <main className="flex-1 pb-24 p-4 max-w-md mx-auto w-full flex flex-col gap-4">
         
-        {activeTab === 'dashboard' && (
-          <div className="flex flex-col gap-4">
-            <h2 className="text-2xl font-bold">Ahoj Petře 👋</h2>
-            <p className="text-slate-400 text-sm">Tady bude tvůj hlavní přehled dnešního dne.</p>
-            {/* Sem brzy přidáme widgety */}
-          </div>
-        )}
+        {activeTab === 'dashboard' && <DashboardPage /> }
 
         {activeTab === 'finance' && <FinancePage />}
 
-        {activeTab === 'auto' && (
-          <div className="flex flex-col gap-4">
-            <h2 className="text-2xl font-bold">Garáž a Servis</h2>
-            <p className="text-slate-400 text-sm">Hlídání tachometru, STK a údržby tvých aut.</p>
-            {/* Sem přijde správa aut */}
-          </div>
-        )}
+        {activeTab === 'auto' && <CarPage />}
 
-        {activeTab === 'dokumenty' && (
-          <div className="flex flex-col gap-4">
-            <h2 className="text-2xl font-bold">Digitální Šanon</h2>
-            <p className="text-slate-400 text-sm">Bezpečné úložiště smluv a důležitých dokumentů.</p>
-            {/* Sem přijde nahrávání souborů */}
-          </div>
-        )}
+        {activeTab === 'dokumenty' && <DocumentPage />}
 
       </main>
 
